@@ -58,6 +58,7 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
+          pnpm --version
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -77,9 +78,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: |
-          export PATH=$PATH:$HOME/.pnpm-global/bin
-          ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Run tests
         run: ${{ steps.detect-package-manager.outputs.manager }} test
       - name: Build with Next.js
