@@ -1,4 +1,4 @@
-import { UnionLevelPageData } from "./unionLevelDataTypes";
+import { InterKnotLevelPageData } from "./interKnotLevelDataTypes";
 
 export type LocalStorageData = string
-  | UnionLevelPageData;
+  | InterKnotLevelPageData;
